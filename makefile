@@ -1,13 +1,12 @@
-SOURCES =
+SOURCES = matrix_functions.cpp main.cpp scanf.cpp
 
 OBJ_DIR = obj
-SOURCE_DIR = Source
-
+SOURCE_DIR = src
 OBJECTS := $(addprefix $(OBJ_DIR)/, $(SOURCES:.cpp=.o))
 SOURCES :=$(addprefix $(SOURCE_DIR)/, $(SOURCES))
 
 
-TARGET = Solver.out
+TARGET = Matrix.out
 
 CC = g++
 
@@ -24,7 +23,6 @@ $(TARGET): $(OBJECTS)
 
 $(OBJ_DIR)/%.o: $(SOURCE_DIR)/%.cpp
 	@mkdir -p $(OBJ_DIR)
-	@touch "log/Logs.txt"
 	@echo "Compiling" $<
 	@$(CC) $(CFLAGS) -c $< -o $@
 	@echo "Compiled Successfully" $<
